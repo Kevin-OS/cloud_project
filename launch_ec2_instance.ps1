@@ -28,3 +28,6 @@ $ipPermissions.ToPort = 3389
 $ipPermissions.IpRanges = $cidrBlocks 
 Grant-EC2SecurityGroupIngress -GroupName $securitygroup -IpPermissions $ipPermissions
 "`n***************Created security group successfully*****************"
+
+New-EC2Instance -ImageId ami-94e26af4 -MinCount 1 -MaxCount 1 -KeyName $keypairname -SecurityGroups $securitygroup -InstanceType t2.micro
+"`n***************Launched Windows Server 2016 Instance********************"
