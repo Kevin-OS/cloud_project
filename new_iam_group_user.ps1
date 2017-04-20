@@ -1,10 +1,10 @@
 ﻿echo "*****************Creating new IAM Group*****************`n"
-$groupname = read-host -Prompt 'Please enter a name for a IAM group: '
+$groupname = read-host -Prompt 'Please enter a name for an IAM group: '
 New-IAMGroup -GroupName $groupname
 echo "*****************New IAM Group Created*****************`n"
 
 echo "*****************Creating new IAM User*****************`n"
-$iamuser = read-host -Prompt 'Please enter a name for a IAM user: '
+$iamuser = read-host -Prompt 'Please enter a name for an IAM user: '
 New-IAMUser -UserName $iamuser
 echo "*****************New IAM User Created*****************`n"
 
