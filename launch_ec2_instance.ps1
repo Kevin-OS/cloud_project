@@ -29,5 +29,9 @@ $ipPermissions.IpRanges = $cidrBlocks
 Grant-EC2SecurityGroupIngress -GroupName $securitygroup -IpPermissions $ipPermissions
 "`n***************Created security group successfully*****************"
 
-New-EC2Instance -ImageId ami-94e26af4 -MinCount 1 -MaxCount 1 -KeyName $keypairname -SecurityGroups $securitygroup -InstanceType t2.micro
-"`n***************Launched Windows Server 2016 Instance********************"
+echo "`nPlease enter ImageId for Amazon Linux or Windows Server 2016 instance"
+echo "Amazon Linux: ami-4836a428"
+echo "Windows Server 2016: ami-94e26af4"
+$imageid = Read-Host -prompt 'Image Id: '
+New-EC2Instance -ImageId $imageid -MinCount 1 -MaxCount 1 -KeyName $keypairname -SecurityGroups $securitygroup -InstanceType t2.micro
+"`n***************Launched Instance********************"
